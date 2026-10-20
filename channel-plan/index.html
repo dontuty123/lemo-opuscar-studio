@@ -84,6 +84,7 @@ footer{max-width:800px;margin:0 auto;padding:0 16px 48px;color:var(--mute);font-
   btns.forEach(function(b){ b.addEventListener('click', function(){ load(b.dataset.doc); }); });
   var start = btns.filter(function(b){ return '#' + b.dataset.doc.replace('.md','') === location.hash; })[0];
   load(start ? start.dataset.doc : 'plan.md');
+  window.addEventListener('hashchange', function(){ var m = btns.filter(function(b){ return '#' + b.dataset.doc.replace('.md','') === location.hash; })[0]; if (m && m.getAttribute('aria-selected') !== 'true') load(m.dataset.doc); });
 })();
 </script>
 </body>
